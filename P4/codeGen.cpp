@@ -63,13 +63,14 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     
     if (tree->nodeLabel == "program"){
-        
+        //do nothing, go to children
     }
     if (tree->nodeLabel == "block"){
+        // do nothing, go to children
         
     }
     if (tree->nodeLabel == "vars"){
-        
+        // do nothing, variables written at end of file
     }
     if (tree->nodeLabel == "stat"){
         
@@ -87,6 +88,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     }
     if (tree->nodeLabel == "N"){
+        
     }
     if (tree->nodeLabel == "M"){
         
