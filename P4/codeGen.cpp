@@ -42,9 +42,14 @@ void CodeGen::Run(node* tree){
 }
 
 void print2Target(string command, string token){
-    string commandToPrint =  command + " " + token;
+    string commandToPrint;
+    if (token != "" ){
+        commandToPrint =  command + " " + token;
+    } else {
+        commandToPrint = command;
+    }
     fprintf(outFile, "%s", commandToPrint.c_str());
-    
+
 }
 
 void CodeGen::traverseTree(node *tree, int depth) {
@@ -57,8 +62,56 @@ void CodeGen::traverseTree(node *tree, int depth) {
         depth++;
     }
     
-    
-    
+    if (tree->nodeLabel == "program"){
+        
+    }
+    if (tree->nodeLabel == "block"){
+        
+    }
+    if (tree->nodeLabel == "vars"){
+        
+    }
+    if (tree->nodeLabel == "stat"){
+        
+    }
+    if (tree->nodeLabel == "stats"){
+        
+    }
+    if (tree->nodeLabel == "mStat"){
+        
+    }
+    if (tree->nodeLabel == "expr"){
+        
+    }
+    if (tree->nodeLabel == "A"){
+        
+    }
+    if (tree->nodeLabel == "N"){
+    }
+    if (tree->nodeLabel == "M"){
+        
+    }
+    if (tree->nodeLabel == "R"){
+        
+    }
+    if (tree->nodeLabel == "IN"){
+        
+    }
+    if (tree->nodeLabel == "OUT"){
+        
+    }
+    if (tree->nodeLabel == "IF"){
+        
+    }
+    if (tree->nodeLabel == "loop"){
+        
+    }
+    if (tree->nodeLabel == "assign"){
+        
+    }
+    if (tree->nodeLabel == "RO"){
+        
+    }
     
 
     
