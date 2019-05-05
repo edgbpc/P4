@@ -15,6 +15,7 @@
 		C35E0541227F4394001B7C70 /* testTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35E0537227F4393001B7C70 /* testTree.cpp */; };
 		C35E0542227F4394001B7C70 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C35E0539227F4393001B7C70 /* Makefile */; };
 		C35E0543227F4394001B7C70 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35E053A227F4393001B7C70 /* main.cpp */; };
+		C35E0546227F446D001B7C70 /* codeGen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C35E0544227F446D001B7C70 /* codeGen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,8 @@
 		C35E0539227F4393001B7C70 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C35E053A227F4393001B7C70 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C35E053B227F4393001B7C70 /* badtest5.sp19 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = badtest5.sp19; sourceTree = "<group>"; };
+		C35E0544227F446D001B7C70 /* codeGen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = codeGen.cpp; sourceTree = "<group>"; };
+		C35E0545227F446D001B7C70 /* codeGen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = codeGen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +95,8 @@
 		C35E0516227F4342001B7C70 /* P4 */ = {
 			isa = PBXGroup;
 			children = (
-				C35E0531227F4393001B7C70 /* Previous Project Files */,
+				C35E0544227F446D001B7C70 /* codeGen.cpp */,
+				C35E0545227F446D001B7C70 /* codeGen.h */,
 				C35E053A227F4393001B7C70 /* main.cpp */,
 				C35E051E227F4392001B7C70 /* parser.cpp */,
 				C35E052D227F4393001B7C70 /* parser.h */,
@@ -114,6 +118,7 @@
 				C35E0538227F4393001B7C70 /* badtest4.sp19 */,
 				C35E053B227F4393001B7C70 /* badtest5.sp19 */,
 				C35E0523227F4393001B7C70 /* badtest6.sp19 */,
+				C35E0531227F4393001B7C70 /* Previous Project Files */,
 			);
 			path = P4;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				C35E0541227F4394001B7C70 /* testTree.cpp in Sources */,
 				C35E0540227F4394001B7C70 /* tree.cpp in Sources */,
 				C35E0542227F4394001B7C70 /* Makefile in Sources */,
+				C35E0546227F446D001B7C70 /* codeGen.cpp in Sources */,
 				C35E0543227F4394001B7C70 /* main.cpp in Sources */,
 				C35E053C227F4394001B7C70 /* parser.cpp in Sources */,
 			);

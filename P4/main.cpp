@@ -15,13 +15,16 @@
 #include "parser.h"
 #include "node.h"
 #include "statSem.h"
+#include "codeGen.h"
 
 
 using namespace std;
 
 ifstream fileToRead; //get the data to be processed
+FILE *outFile;
 Parser myParser;
 StaticSemantics statSem;
+CodeGen myCodeGenerator;
 
 
 int main(int argc, const char * argv[]) {
@@ -77,6 +80,14 @@ int main(int argc, const char * argv[]) {
             
  }
     statSem.Run(tree);
+
+    outFileName = outFileNameBase + ".asm";
+    
+    outFile = fopen(outFileName.c_str(), "w");
+    cout << "Generating " << outFileNameBase << ".asm" << endl;
+    myCodeGenerator.Run(tree);
+    fclose(outFile);
+    
     
     fileToRead.close();
     
