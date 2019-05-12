@@ -22,14 +22,13 @@
 const int DEVMODE = 1;
 int tempVariableCounter = 0;
 string tempVariable;
-//vector<string> globalContainer;
+string tempVariableValue;
 
-//reference https://www.geeksforgeeks.org/vector-in-cpp-stl/
+
+using namespace std;
 
 vector<string> tempVariableContainer;
 vector<string> tempVariableValues;
-
-using namespace std;
 
 CodeGen::CodeGen(){
     
