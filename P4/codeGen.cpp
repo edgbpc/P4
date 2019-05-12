@@ -55,6 +55,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
     
     
     if (tree == NULL) {
+        if (DEVMODE) cout << "at end of tree" << endl;
+
        print2Target("STOP", "");
         return;
     } else {
@@ -62,55 +64,81 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     
     if (tree->nodeLabel == "program"){
-        //do nothing, go to children
+         if (DEVMODE) cout << "inside PROGRAM node" << endl;
     }
     if (tree->nodeLabel == "block"){
-        // do nothing, go to children
-        
+        if (DEVMODE) cout << "inside BLOCK node" << endl;
+
     }
     if (tree->nodeLabel == "vars"){
-        // do nothing, variables written at end of file
+        if (DEVMODE) cout << "inside VARS node" << endl;
     }
     if (tree->nodeLabel == "stat"){
+        if (DEVMODE) cout << "inside STAT node" << endl;
+
         
     }
     if (tree->nodeLabel == "stats"){
+        if (DEVMODE) cout << "inside STATS node" << endl;
+
         
     }
     if (tree->nodeLabel == "mStat"){
+        if (DEVMODE) cout << "inside MSTAT node" << endl;
+
         
     }
     if (tree->nodeLabel == "expr"){
+        if (DEVMODE) cout << "inside EXPR node" << endl;
+
         
     }
     if (tree->nodeLabel == "A"){
+        if (DEVMODE) cout << "inside A node" << endl;
+
         
     }
     if (tree->nodeLabel == "N"){
+        if (DEVMODE) cout << "inside N node" << endl;
+
         
     }
     if (tree->nodeLabel == "M"){
-        
+        if (DEVMODE) cout << "inside M node" << endl;
+
     }
     if (tree->nodeLabel == "R"){
+        if (DEVMODE) cout << "inside R node" << endl;
+
         
     }
     if (tree->nodeLabel == "IN"){
+        if (DEVMODE) cout << "inside IN node" << endl;
+
         
     }
     if (tree->nodeLabel == "OUT"){
+        if (DEVMODE) cout << "inside OUT node" << endl;
         print2Target("WRITE", tree->token1.tokenInstance);
     }
     if (tree->nodeLabel == "IF"){
+        if (DEVMODE) cout << "inside IF node" << endl;
+
         
     }
     if (tree->nodeLabel == "loop"){
+        if (DEVMODE) cout << "inside LOOP node" << endl;
+
         
     }
     if (tree->nodeLabel == "assign"){
+        if (DEVMODE) cout << "inside ASSIGN node" << endl;
+
         
     }
     if (tree->nodeLabel == "RO"){
+        if (DEVMODE) cout << "inside RO node" << endl;
+
         
     }
     
