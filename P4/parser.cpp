@@ -207,19 +207,21 @@ node*  Parser::R() {
        return node;
     } else if (receivedToken.tokenID == identifierToken || receivedToken.tokenID == digitToken) {
         node->token1 = receivedToken;
+        tkScanner();
         node->child1 = NULL;
         node->child2 = NULL;
         node->child3 = NULL;
         node->child4 = NULL;
-        tkScanner();
         return node;
-    } else if (receivedToken.tokenInstance == "*" || receivedToken.tokenInstance == "/" || receivedToken.tokenInstance == "%" || receivedToken.tokenInstance == "-"){
+    } else if (receivedToken.tokenInstance == "*" || receivedToken.tokenInstance == "/" || receivedToken.tokenInstance == "%" || receivedToken.tokenInstance == "-" || receivedToken.tokenInstance  == "+"){
         node->token1 = receivedToken;
+        tkScanner();
+        tkScanner();
+
         node->child1 = NULL;
         node->child2 = NULL;
         node->child3 = NULL;
         node->child4 = NULL;
-        tkScanner();
         return node;
     } else {
         error("(, identifier, or digit");
