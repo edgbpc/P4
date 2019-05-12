@@ -44,7 +44,7 @@ string CodeGen::nextTempVariable(){
 
 void CodeGen::Run(node* tree){
     traverseTree(tree, 0);
-    print2Target("STOP\n", "");
+    print2Target("\nSTOP\n", "");
     for (int i = 0; i < globalContainer.size(); i++){
         print2Target(globalContainer[i], "");
         print2Target("", globalValues[i]);
@@ -170,7 +170,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "Out"){
         if (DEVMODE) cout << "inside OUT node" << endl;
-        print2Target("WRITE", "");
+        print2Target("WRITE", tempVariable);
     }
     if (tree->nodeLabel == "IF"){
         if (DEVMODE) cout << "inside IF node" << endl;
