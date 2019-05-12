@@ -213,7 +213,7 @@ node*  Parser::R() {
         node->child4 = NULL;
         tkScanner();
         return node;
-    } else if (receivedToken.tokenInstance == "*" || receivedToken.tokenInstance == "/" || receivedToken.tokenInstance == "%"){
+    } else if (receivedToken.tokenInstance == "*" || receivedToken.tokenInstance == "/" || receivedToken.tokenInstance == "%" || receivedToken.tokenInstance == "-"){
         node->token1 = receivedToken;
         node->child1 = NULL;
         node->child2 = NULL;
