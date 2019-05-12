@@ -22,4 +22,4 @@ statSem:	$(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4)
 
 .PHONY: clean
 clean:
-	/bin/rm -f *.o *.dat  *~ $(TARGET1)
+	/bin/rm -f *.o *.dat *.asm  *~ $(TARGET1)
