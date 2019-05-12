@@ -113,6 +113,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     } else if (tree->nodeLabel == "vars"){
         if (DEVMODE) cout << "inside VARS node" << endl;
         print2Target("LOAD", tree->token1.tokenInstance);
+        print2Target("\n", "");
         
         return;
         
