@@ -3,3 +3,10 @@ void
 x1 = 1 + 6 - 5 * 5  / 2 * 2 ;
 print x1 ;
 return
+
+
+var x1 : 1
+void
+x1 = 5 * 5 ;
+print x1 ;
+return
