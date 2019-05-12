@@ -138,12 +138,10 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     } else if (tree->nodeLabel == "mStat"){
         if (DEVMODE) cout << "inside MSTAT node" << endl;
-        if (tree->child1 == NULL){
-            //do nothing
-        } else {
+
             traverseTree(tree->child1, depth);
             traverseTree(tree->child2, depth);
-        }
+        
 
         return;
         
