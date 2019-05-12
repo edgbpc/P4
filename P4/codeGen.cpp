@@ -140,7 +140,9 @@ void CodeGen::traverseTree(node *tree, int depth) {
             tempVariable = nextTempVariable();
 //            tempVariableContainer.push_back(tempVariable);
             print2Target("STORE", tempVariable);
+            print2Target("\n", "");
             print2Target("MULTI", tempVariable);
+            print2Target("\n", "");
         }
         
         
@@ -182,7 +184,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "assign"){
         if (DEVMODE) cout << "inside ASSIGN node" << endl;
-        print2Target("STORE", "");
 
         
     }
