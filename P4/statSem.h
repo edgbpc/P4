@@ -15,6 +15,7 @@
 
 
 extern vector<string> globalContainer;
+extern vector<string> globalValues;
 
 class StaticSemantics {
     
@@ -24,6 +25,7 @@ class StaticSemantics {
     
     private:
         void insert(string variable);
+        void insertToValues(string variable);
         bool verify(string variable);
         void traverseTree(node *tree, int depth);
     
