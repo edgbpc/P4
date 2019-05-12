@@ -219,7 +219,7 @@ node*  Parser::R() {
         node->child2 = NULL;
         node->child3 = NULL;
         node->child4 = NULL;
-        tkScanner();
+       // tkScanner();
         return node;
     } else {
         error("(, identifier, or digit");
