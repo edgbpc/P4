@@ -10,3 +10,12 @@ void
 x1 = 5 * 5 ;
 print x1 ;
 return
+
+
+READ x1
+LOAD x1
+MULT 5
+STORE x1
+WRITE
+STOP
+x1 0
