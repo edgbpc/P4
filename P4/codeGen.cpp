@@ -212,6 +212,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
                 traverseTree(tree->child1, depth);
             }
         }
+        
+        return;
 
         
     } else if (tree->nodeLabel == "In"){
