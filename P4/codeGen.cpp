@@ -52,7 +52,7 @@ void CodeGen::Run(node* tree){
     }
     for (int i = 0; i < tempVariableContainer.size(); i++){
         print2Target(tempVariableContainer[i], "");
-//        print2Target("", tempVariableValues[i]);
+        print2Target("", tempVariableValues[i]);
         print2Target("\n", "");
     }
     
@@ -153,8 +153,9 @@ void CodeGen::traverseTree(node *tree, int depth) {
     if (tree->nodeLabel == "R"){
         if (DEVMODE) cout << "inside R node" << endl;
         if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
-            print2Target("", tree->token1.tokenInstance);
-            print2Target("\n", "");
+            tempVariableValues.push_back(tree->token1.tokenInstance);
+            //  print2Target("", tree->token1.tokenInstance);
+           // print2Target("\n", "");
         }
 
         
