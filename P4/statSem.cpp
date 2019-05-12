@@ -26,8 +26,14 @@ const int DEVMODE = 0;
 using namespace std;
 
 vector<string> globalContainer;
+vector<string> globalValues;
 
 StaticSemantics::StaticSemantics(){
+    
+}
+
+void StaticSemantics::insertToValues(string variable){
+    globalValues.push_back(variable);
     
 }
 
@@ -73,6 +79,7 @@ void StaticSemantics::traverseTree(node *tree, int depth) {
         if (!verify(tree -> token1.tokenInstance)){
             if (DEVMODE) cout << "Variable did not exist, adding to container" << endl;
             insert(tree-> token1.tokenInstance);
+            insertToValues(tree -> token2.tokenInstance);
             if (DEVMODE) cout << globalContainer.back() << " added." << endl;
         } else {
             cout << "Error: redefination of " << tree-> token1.tokenInstance << ".  Exiting." << endl;

@@ -36,7 +36,8 @@ void CodeGen::Run(node* tree){
     traverseTree(tree, 0);
     print2Target("STOP\n", "");
     for (int i = 0; i < globalContainer.size(); i++){
-        print2Target("", globalContainer[i]);
+        print2Target(globalContainer[i], "");
+        print2Target("", globalValues[i]);
     }
     
     print2Target("\n", "");
