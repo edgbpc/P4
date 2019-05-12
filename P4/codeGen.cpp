@@ -170,6 +170,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "Out"){
         if (DEVMODE) cout << "inside OUT node" << endl;
+        print2Target("LOAD", tempVariable);
         print2Target("WRITE", tempVariable);
     }
     if (tree->nodeLabel == "IF"){
