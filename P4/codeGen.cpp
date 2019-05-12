@@ -50,11 +50,11 @@ void CodeGen::Run(node* tree){
         print2Target("", globalValues[i]);
         print2Target("\n", "");
     }
-//    for (int i = 0; i < tempVariableContainer.size(); i++){
-//        print2Target(tempVariableContainer[i], "");
+    for (int i = 0; i < tempVariableContainer.size(); i++){
+        print2Target(tempVariableContainer[i], "");
 //        print2Target("", tempVariableValues[i]);
-//        print2Target("\n", "");
-//    }
+        print2Target("\n", "");
+    }
     
     print2Target("\n", "");
     
