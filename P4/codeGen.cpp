@@ -131,7 +131,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         traverseTree(tree->child1, depth);
   
         
-        if (DEVMODE) cout << "Checking child 2." << endl;
+        if (DEVMODE) cout << "Checking child 2 of stats." << endl;
         traverseTree(tree->child2, depth);
         
         return;
