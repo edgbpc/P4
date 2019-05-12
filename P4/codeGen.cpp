@@ -42,8 +42,10 @@ void CodeGen::print2Target(string command, string token){
     string commandToPrint;
     if (token != "" ){
         commandToPrint =  command + " " + token;
-    } else {
+    } else if (token == ""){
         commandToPrint = command;
+    } else if (command != "") {
+        commandToPrint = "" + token;
     }
     fprintf(outFile, "%s", commandToPrint.c_str());
 
@@ -109,6 +111,9 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "R"){
         if (DEVMODE) cout << "inside R node" << endl;
+        if (token1.tokenInstance != ""){
+            print2Target("", tree->token1.tokenInstance);
+        }
 
         
     }
@@ -119,7 +124,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "Out"){
         if (DEVMODE) cout << "inside OUT node" << endl;
-        print2Target("WRITE", tree->token1.tokenInstance);
+        print2Target("WRITE", "");
     }
     if (tree->nodeLabel == "IF"){
         if (DEVMODE) cout << "inside IF node" << endl;
