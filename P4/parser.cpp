@@ -364,8 +364,8 @@ node* Parser::assign() {
     node->child2 = NULL;
     node->child3 = NULL;
     node->child4 = NULL;
-    tkScanner();
     if (receivedToken.tokenID == identifierToken){
+        tkScanner();
         if (receivedToken.tokenInstance == "=") {
 
             node->child1 = expr();
