@@ -20,7 +20,6 @@
 
 
 const int DEVMODE = 1;
-FILE *outFile;
 
 //reference https://www.geeksforgeeks.org/vector-in-cpp-stl/
 

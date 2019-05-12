@@ -14,8 +14,8 @@ CXXFLAGS = -std=c++11
 
 all:	$(TARGET1)
 
-statSem:	$(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)
-		$(CC) $(CFLAGS) $(CXXFLAGS) $(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)-o $@
+codeGen:	$(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)
+		$(CC) $(CFLAGS) $(CXXFLAGS) $(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5) -o $@
 
 
 .c.o:
