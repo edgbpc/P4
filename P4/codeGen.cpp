@@ -34,6 +34,7 @@ CodeGen::CodeGen(){
 void CodeGen::Run(node* tree){
     traverseTree(tree, 0);
     print2Target("STOP", "");
+    print2Target("\n", "");
     
     cout << "Code Generator Complete.  No Errors" << endl;
     
