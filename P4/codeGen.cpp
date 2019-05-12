@@ -101,6 +101,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "expr"){
         if (DEVMODE) cout << "inside EXPR node" << endl;
+        
+        
 
         
     }
@@ -111,7 +113,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "N"){
         if (DEVMODE) cout << "inside N node" << endl;
-
+        print2Target("MULTI", "");
+        
         
     }
     if (tree->nodeLabel == "M"){
