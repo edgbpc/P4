@@ -20,15 +20,26 @@
 
 
 const int DEVMODE = 1;
+int tempVariableCounter = 0;
+string tempVariable;
 //vector<string> globalContainer;
 
 //reference https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
+vector<string> tempVariableContainer;
+vector<string> tempVariableValues;
 
 using namespace std;
 
 CodeGen::CodeGen(){
     
+    
+}
+
+string CodeGen::nextTempVariable(){
+    string nextVariable;
+    nextVariable = "T" + to_string(tempVariableCounter);
+    return  nextVariable;
     
 }
 
@@ -38,6 +49,11 @@ void CodeGen::Run(node* tree){
     for (int i = 0; i < globalContainer.size(); i++){
         print2Target(globalContainer[i], "");
         print2Target("", globalValues[i]);
+        print2Target("\n", "");
+    }
+    for (int i = 0; i < tempVariableContainer.size(); i++){
+        print2Target(tempVariableContainer[i], "");
+        print2Target("", tempVariableValues[i]);
         print2Target("\n", "");
     }
     
@@ -121,7 +137,10 @@ void CodeGen::traverseTree(node *tree, int depth) {
     if (tree->nodeLabel == "N"){
         if (DEVMODE) cout << "inside N node" << endl;
         if (tree->token1.tokenInstance == "*" ){
-            print2Target("MULTI", "");
+            tempVariable = nextTempVariable();
+            tempVariableContainer.push_back(tempVariable);
+            print2Target("STORE", tempVariable);
+            print2Target("MULTI", tempVariable);
         }
         
         
@@ -132,7 +151,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "R"){
         if (DEVMODE) cout << "inside R node" << endl;
-        if (tree->token1.tokenInstance != ""){
+        if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
             print2Target("", tree->token1.tokenInstance);
             print2Target("\n", "");
         }
@@ -195,4 +214,4 @@ void CodeGen::traverseTree(node *tree, int depth) {
 }
 
 
-
+                         }

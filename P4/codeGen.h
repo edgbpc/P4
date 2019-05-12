@@ -28,6 +28,7 @@ public:
 private:
     void traverseTree(node *tree, int depth);
     void print2Target(string command, string token);
+    string nextTempVariable();
     
 };
 

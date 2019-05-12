@@ -69,6 +69,7 @@
 		C3663FBC2287B9E300D7A540 /* test10.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test10.sp19; sourceTree = "<group>"; };
 		C3663FBD2287BA1C00D7A540 /* test11.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test11.sp19; sourceTree = "<group>"; };
 		C3663FBE2287BA3D00D7A540 /* test12.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test12.sp19; sourceTree = "<group>"; };
+		C3663FBF22889AB900D7A540 /* testMULTI.sp19 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testMULTI.sp19; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		C35E0516227F4342001B7C70 /* P4 */ = {
 			isa = PBXGroup;
 			children = (
+				C3663FBF22889AB900D7A540 /* testMULTI.sp19 */,
 				C35E0544227F446D001B7C70 /* codeGen.cpp */,
 				C35E0545227F446D001B7C70 /* codeGen.h */,
 				C35E053A227F4393001B7C70 /* main.cpp */,
