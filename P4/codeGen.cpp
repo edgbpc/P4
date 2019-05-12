@@ -162,7 +162,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
             tempVariableValues.push_back(tree->token1.tokenInstance);
              print2Target("LOAD", tree->token1.tokenInstance);
-           // print2Target("\n", "");
+             print2Target("\n", "");
         }
 
         
