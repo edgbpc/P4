@@ -63,6 +63,12 @@
 		C35E053B227F4393001B7C70 /* badtest5.sp19 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = badtest5.sp19; sourceTree = "<group>"; };
 		C35E0544227F446D001B7C70 /* codeGen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = codeGen.cpp; sourceTree = "<group>"; };
 		C35E0545227F446D001B7C70 /* codeGen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = codeGen.h; sourceTree = "<group>"; };
+		C3663FB92287B98C00D7A540 /* test7.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test7.sp19; sourceTree = "<group>"; };
+		C3663FBA2287B9AC00D7A540 /* test8.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test8.sp19; sourceTree = "<group>"; };
+		C3663FBB2287B9C900D7A540 /* test9.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test9.sp19; sourceTree = "<group>"; };
+		C3663FBC2287B9E300D7A540 /* test10.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test10.sp19; sourceTree = "<group>"; };
+		C3663FBD2287BA1C00D7A540 /* test11.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test11.sp19; sourceTree = "<group>"; };
+		C3663FBE2287BA3D00D7A540 /* test12.sp19 */ = {isa = PBXFileReference; lastKnownFileType = text; path = test12.sp19; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +118,19 @@
 				C35E0525227F4393001B7C70 /* test4.sp19 */,
 				C35E052A227F4393001B7C70 /* test5.sp19 */,
 				C35E052F227F4393001B7C70 /* test6.sp19 */,
+				C3663FB92287B98C00D7A540 /* test7.sp19 */,
+				C3663FBA2287B9AC00D7A540 /* test8.sp19 */,
+				C3663FBB2287B9C900D7A540 /* test9.sp19 */,
+				C3663FBC2287B9E300D7A540 /* test10.sp19 */,
+				C3663FBD2287BA1C00D7A540 /* test11.sp19 */,
+				C3663FBE2287BA3D00D7A540 /* test12.sp19 */,
 				C35E052C227F4393001B7C70 /* badtest1.sp19 */,
 				C35E052E227F4393001B7C70 /* badtest2.sp19 */,
 				C35E0530227F4393001B7C70 /* badtest3.sp19 */,
 				C35E0538227F4393001B7C70 /* badtest4.sp19 */,
 				C35E053B227F4393001B7C70 /* badtest5.sp19 */,
 				C35E0523227F4393001B7C70 /* badtest6.sp19 */,
+				C35E0539227F4393001B7C70 /* Makefile */,
 				C35E0531227F4393001B7C70 /* Previous Project Files */,
 			);
 			path = P4;
@@ -127,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				C35E051F227F4392001B7C70 /* README.txt */,
-				C35E0539227F4393001B7C70 /* Makefile */,
 				C35E0532227F4393001B7C70 /* testTree.h */,
 				C35E0533227F4393001B7C70 /* testScanner.cpp */,
 				C35E0534227F4393001B7C70 /* tree.h */,
