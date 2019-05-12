@@ -231,14 +231,14 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     }
     if (tree->nodeLabel == "Out"){
-        if (DEVMODE) cout << "inside OUT node" << endl;
-        print2Target("WRITE", "");
-        
         if (DEVMODE) cout << "Checking child 1." << endl;
+
         if(tree->child1 != NULL){
             traverseTree(tree->child1, depth);
         }
         
+        if (DEVMODE) cout << "inside OUT node" << endl;
+        print2Target("WRITE", "");
 
     }
     if (tree->nodeLabel == "IF"){
