@@ -219,7 +219,7 @@ node*  Parser::R() {
     } else if (receivedToken.tokenInstance == "*" || receivedToken.tokenInstance == "/" || receivedToken.tokenInstance == "%" || receivedToken.tokenInstance == "-" || receivedToken.tokenInstance  == "+"){
         node->token1 = receivedToken;
         tkScanner();
-        tkScanner();
+       // tkScanner();
         node->child1 = NULL;
         node->child2 = NULL;
         node->child3 = NULL;
@@ -233,7 +233,6 @@ node*  Parser::R() {
 node*  Parser::stats() {
     node* node = getNode("stats");
     node->child1 = stat();
-
     if (receivedToken.tokenInstance != ";"){
         error(";");
     } else {

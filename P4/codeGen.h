@@ -11,10 +11,13 @@
 
 #include <stdio.h>
 #include <vector>
+#include <string.h>
 #include "parser.h"
 #include "node.h"
 
+
 extern FILE *outFile;
+extern vector<string> globalContainer;
 
 class CodeGen {
     

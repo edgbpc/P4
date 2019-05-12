@@ -21,13 +21,10 @@
 
 const int DEVMODE = 1;
 
-
 //reference https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
 
 using namespace std;
-
-//ector<string> globalContainer;
 
 CodeGen::CodeGen(){
     
@@ -52,11 +49,13 @@ void print2Target(string command, string token){
 
 }
 
+
 void CodeGen::traverseTree(node *tree, int depth) {
     token_t token1;
     
     
     if (tree == NULL) {
+ //       print2Target("STOP", "");
         return;
     } else {
         depth++;
@@ -100,7 +99,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     }
     if (tree->nodeLabel == "OUT"){
-        
+  //      print2Target("WRITE", tree->token1.tokenInstance);
     }
     if (tree->nodeLabel == "IF"){
         

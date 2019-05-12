@@ -1,11 +1,12 @@
 CC	= g++
 CFLAGS	= 
 
-TARGET1	= statSem
+TARGET1	= codeGen
 OBJS1	= main.o
 OBJS2	= scanner.o
 OBJS3	= parser.o
 OBJS4   = statSem.o
+OBJS5   = codeGen.o
 
 CXXFLAGS = -std=c++11
 
@@ -13,8 +14,8 @@ CXXFLAGS = -std=c++11
 
 all:	$(TARGET1)
 
-statSem:	$(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4)
-		$(CC) $(CFLAGS) $(CXXFLAGS) $(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) -o $@
+statSem:	$(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)
+		$(CC) $(CFLAGS) $(CXXFLAGS) $(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)-o $@
 
 
 .c.o:
