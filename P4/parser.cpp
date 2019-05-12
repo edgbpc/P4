@@ -361,13 +361,13 @@ node* Parser::loop() {
 }
 node* Parser::assign() {
     node* node = getNode("assign");
+    tkScanner();
     node->child2 = NULL;
     node->child3 = NULL;
     node->child4 = NULL;
     if (receivedToken.tokenID == identifierToken){
         tkScanner();
         if (receivedToken.tokenInstance == "=") {
-            tkScanner();
             node->child1 = expr();
             return node;
         } else {
