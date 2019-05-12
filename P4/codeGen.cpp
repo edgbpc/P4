@@ -20,6 +20,7 @@
 
 
 const int DEVMODE = 1;
+//vector<string> globalContainer;
 
 //reference https://www.geeksforgeeks.org/vector-in-cpp-stl/
 
@@ -34,6 +35,10 @@ CodeGen::CodeGen(){
 void CodeGen::Run(node* tree){
     traverseTree(tree, 0);
     print2Target("STOP", "");
+    for (int i = 0; i < globalContainer.size(); i++){
+        print2Target("", globalContainer[i]);
+    }
+    
     print2Target("\n", "");
     
     cout << "Code Generator Complete.  No Errors" << endl;
@@ -122,13 +127,13 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "IN"){
         if (DEVMODE) cout << "inside IN node" << endl;
+        print2Target("READ", "");
 
         
     }
     if (tree->nodeLabel == "Out"){
         if (DEVMODE) cout << "inside OUT node" << endl;
         print2Target("WRITE", "");
-        print2Target("\n", "");
     }
     if (tree->nodeLabel == "IF"){
         if (DEVMODE) cout << "inside IF node" << endl;
