@@ -27,7 +27,7 @@ const int DEVMODE = 1;
 
 using namespace std;
 
-vector<string> globalContainer;
+//ector<string> globalContainer;
 
 CodeGen::CodeGen(){
     

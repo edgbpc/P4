@@ -143,11 +143,11 @@ node*  Parser::A() {
     node->child1 = N();
     node->child2 = NULL;
     if (receivedToken.tokenInstance == "/") {
+        node->token1 = receivedToken;
+        tkScanner();
         node->child2 = A();
         node->child3 = NULL;
         node->child4 = NULL;
-        node->token1 = receivedToken;
-        tkScanner();
         return node;
     } else {
         return node;
@@ -161,11 +161,11 @@ node*  Parser::N() {
     node->child1 = M();
     node->child2 = NULL;
     if (receivedToken.tokenInstance == "*") {
+        node->token1 = receivedToken;
+        tkScanner();
         node->child2 = N();
         node->child3 = NULL;
         node->child4 = NULL;
-        node->token1 = receivedToken;
-        tkScanner();
         return node;
     } else {
         return node;
@@ -219,7 +219,7 @@ node*  Parser::R() {
         node->child2 = NULL;
         node->child3 = NULL;
         node->child4 = NULL;
-       // tkScanner();
+        tkScanner();
         return node;
     } else {
         error("(, identifier, or digit");
