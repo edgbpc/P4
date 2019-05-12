@@ -86,6 +86,7 @@ int main(int argc, const char * argv[]) {
     outFile = fopen(outFileName.c_str(), "w");
     cout << "Generating " << outFileNameBase << ".asm" << endl;
     myCodeGenerator.Run(tree);
+    
     fclose(outFile);
     
     

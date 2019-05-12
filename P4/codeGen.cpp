@@ -33,6 +33,7 @@ CodeGen::CodeGen(){
 
 void CodeGen::Run(node* tree){
     traverseTree(tree, 0);
+    print2Target("STOP", "");
     
     cout << "Code Generator Complete.  No Errors" << endl;
     
@@ -113,6 +114,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside R node" << endl;
         if (tree->token1.tokenInstance != ""){
             print2Target("", tree->token1.tokenInstance);
+            print2Target("\n", "");
         }
 
         
