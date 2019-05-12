@@ -38,6 +38,7 @@ void CodeGen::Run(node* tree){
     for (int i = 0; i < globalContainer.size(); i++){
         print2Target(globalContainer[i], "");
         print2Target("", globalValues[i]);
+        print2Target("\n", "");
     }
     
     print2Target("\n", "");
