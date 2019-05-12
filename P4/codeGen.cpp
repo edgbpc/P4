@@ -126,7 +126,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
 
         
     }
-    if (tree->nodeLabel == "IN"){
+    if (tree->nodeLabel == "In"){
         if (DEVMODE) cout << "inside IN node" << endl;
         print2Target("READ", "");
 
