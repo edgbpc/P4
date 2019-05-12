@@ -135,7 +135,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
             tempVariableContainer.push_back(tempVariable);
             print2Target("LOAD", tempVariable);
             print2Target("\n", "");
-            print2Target("MULT", tempVariable);
+            print2Target("DIV", tempVariable);
             print2Target("\n", "");
         }
         
