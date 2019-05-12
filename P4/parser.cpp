@@ -246,7 +246,7 @@ node*  Parser::stats() {
     
 }
 node*  Parser::mStat() {
-    node* node = getNode("mStats");
+    node* node = getNode("mStat");
   //  tkScanner();
     if (receivedToken.tokenInstance == "scan" || receivedToken.tokenInstance == "print" || receivedToken.tokenInstance == "void" || receivedToken.tokenInstance == "cond" || receivedToken.tokenInstance == "iter" || receivedToken.tokenID == identifierToken) {
     //    tkScanner();
