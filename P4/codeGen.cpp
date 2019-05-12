@@ -6,7 +6,6 @@
 //  Copyright © 2019 umsl. All rights reserved.
 //
 
-#include "codeGen.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,6 +16,7 @@
 #include "statSem.h"
 #include "node.h"
 #include "token.h"
+#include "codeGen.h"
 
 
 const int DEVMODE = 1;
@@ -38,7 +38,7 @@ void CodeGen::Run(node* tree){
     
 }
 
-void print2Target(string command, string token){
+void CodeGen::print2Target(string command, string token){
     string commandToPrint;
     if (token != "" ){
         commandToPrint =  command + " " + token;
@@ -55,7 +55,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     
     
     if (tree == NULL) {
- //       print2Target("STOP", "");
+       print2Target("STOP", "");
         return;
     } else {
         depth++;
@@ -99,7 +99,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     }
     if (tree->nodeLabel == "OUT"){
-  //      print2Target("WRITE", tree->token1.tokenInstance);
+        print2Target("WRITE", tree->token1.tokenInstance);
     }
     if (tree->nodeLabel == "IF"){
         
