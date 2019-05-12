@@ -285,7 +285,7 @@ node*  Parser::stat() {
         node->child1 = loop();
         return node;
     }else if (receivedToken.tokenID == identifierToken) {
-        tkScanner();
+        //tkScanner();
         node->child1 = assign();
         return node;
     } else {
