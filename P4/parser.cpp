@@ -52,6 +52,7 @@ node * Parser::parser() {
 }
 node* Parser::program() {
     node *node = getNode("program");
+    tkScanner();
     
     node->child1 = vars();
     node->child2 = block();
@@ -64,6 +65,7 @@ node* Parser::program() {
 node* Parser::block() {
     node *node = getNode("block");
     if (receivedToken.tokenInstance == "void"){
+        tkScanner();
         node->child1 = vars();
         node->child2 = stats();
         node->child3 = NULL;
@@ -77,13 +79,13 @@ node* Parser::block() {
     } else {
         error("void");
     }
-    tkScanner();
+   // tkScanner();
     return NULL;
 }
 
 node* Parser::vars() {
     node *node = getNode("vars");
-    tkScanner();
+  //  tkScanner();
     if (receivedToken.tokenInstance == "var") {  //predict <vars> -> var Identifier : Integer <vars>
         tkScanner();
         if (receivedToken.tokenID == identifierToken) {
@@ -93,6 +95,7 @@ node* Parser::vars() {
                 tkScanner();
                 if (receivedToken.tokenID == digitToken) {
                     node->token2 = receivedToken;
+                    tkScanner();
                     node->child1 = vars();
                     node->child2 = NULL;
                     node->child3 = NULL;
@@ -216,7 +219,6 @@ node*  Parser::R() {
     } else if (receivedToken.tokenInstance == "*" || receivedToken.tokenInstance == "/" || receivedToken.tokenInstance == "%" || receivedToken.tokenInstance == "-" || receivedToken.tokenInstance  == "+"){
         node->token1 = receivedToken;
         tkScanner();
-        tkScanner();
 
         node->child1 = NULL;
         node->child2 = NULL;
@@ -234,6 +236,8 @@ node*  Parser::stats() {
 
     if (receivedToken.tokenInstance != ";"){
         error(";");
+    } else {
+        tkScanner();
     }
     node->child2 = mStat();
     node->child3 = NULL;
@@ -244,10 +248,13 @@ node*  Parser::stats() {
 }
 node*  Parser::mStat() {
     node* node = getNode("mStats");
-    tkScanner();
-    if (receivedToken.tokenInstance == "scan" || receivedToken.tokenInstance == "print" || receivedToken.tokenInstance == "void" || receivedToken.tokenInstance == "cond" || receivedToken.tokenInstance == "iter") {
+  //  tkScanner();
+    if (receivedToken.tokenInstance == "scan" || receivedToken.tokenInstance == "print" || receivedToken.tokenInstance == "void" || receivedToken.tokenInstance == "cond" || receivedToken.tokenInstance == "iter" || receivedToken.tokenID == identifierToken) {
+    //    tkScanner();
+
         node->child1 = stat();
         if (receivedToken.tokenInstance == ";") {
+            tkScanner();
             node->child2 = mStat();
             node->child3 = NULL;
             node->child4 = NULL;
@@ -287,7 +294,6 @@ node*  Parser::stat() {
         node->child1 = loop();
         return node;
     }else if (receivedToken.tokenID == identifierToken) {
-        //tkScanner();
         node->child1 = assign();
         return node;
     } else {
@@ -345,6 +351,7 @@ node* Parser::IF() {
 }
 node* Parser::loop() {
     node* node = getNode("loop");
+    
     if (receivedToken.tokenInstance == "["){
         tkScanner();
         node->child1 = expr();
@@ -356,6 +363,7 @@ node* Parser::loop() {
         }
         tkScanner();
         node->child4 = stat();
+        return node;
     } else {
         error("[");
     }
