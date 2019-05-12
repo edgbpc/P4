@@ -34,7 +34,7 @@ CodeGen::CodeGen(){
 
 void CodeGen::Run(node* tree){
     traverseTree(tree, 0);
-    print2Target("STOP", "");
+    print2Target("STOP\n", "");
     for (int i = 0; i < globalContainer.size(); i++){
         print2Target("", globalContainer[i]);
     }
