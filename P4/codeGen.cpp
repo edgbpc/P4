@@ -130,7 +130,14 @@ void CodeGen::traverseTree(node *tree, int depth) {
     }
     if (tree->nodeLabel == "A"){
         if (DEVMODE) cout << "inside A node" << endl;
-
+        if (tree->token1.tokenInstance == "/"){
+            tempVariable = nextTempVariable();
+            tempVariableContainer.push_back(tempVariable);
+            print2Target("LOAD", tempVariable);
+            print2Target("\n", "");
+            print2Target("MULT", tempVariable);
+            print2Target("\n", "");
+        }
         
     }
     if (tree->nodeLabel == "N"){
