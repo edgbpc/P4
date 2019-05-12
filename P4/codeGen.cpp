@@ -81,9 +81,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
     
     
     if (tree == NULL) {
-        if (DEVMODE) cout << "at end of tree" << endl;
-
-       print2Target("STOP", "");
         return;
         
     } else if (tree->nodeLabel == "program"){
@@ -98,6 +95,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if(tree->child2 != NULL){
             traverseTree(tree->child2, depth);
         }
+        
+        return;
     } else if (tree->nodeLabel == "block"){
         if (DEVMODE) cout << "inside BLOCK node" << endl;
         
@@ -112,8 +111,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     } else if (tree->nodeLabel == "vars"){
         if (DEVMODE) cout << "inside VARS node" << endl;
-        print2Target("LOAD", tree->token1.tokenInstance);
-        print2Target("\n", "");
+        print2Target("\nLOAD", tree->token1.tokenInstance);
         
         return;
         
@@ -218,7 +216,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     } else if (tree->nodeLabel == "In"){
         if (DEVMODE) cout << "inside IN node" << endl;
-        print2Target("READ", "");
+        print2Target("\nREAD", "");
         print2Target("", tree->token1.tokenInstance);
         return;
 
@@ -227,7 +225,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "Checking child 1." << endl;
         
         if (DEVMODE) cout << "inside OUT node" << endl;
-        print2Target("WRITE", "");
+        print2Target("\nWRITE", "");
         
         if(tree->child1 != NULL){
             traverseTree(tree->child1, depth);
