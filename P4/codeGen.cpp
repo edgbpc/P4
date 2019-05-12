@@ -189,7 +189,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     } else if (tree->nodeLabel == "M"){
         if (DEVMODE) cout << "inside M node" << endl;
         if (tree->token1.tokenInstance == "%"){
-            print2Target("", tree->token1.tokenInstance);
+            print2Target("/nMULT", "-1");
             if(tree->child1 != NULL){
                 traverseTree(tree->child1, depth);
             }
