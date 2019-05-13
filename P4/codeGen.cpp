@@ -191,6 +191,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (tree->token1.tokenInstance == "%"){
             print2Target("\nMULT", "-1");
             traverseTree(tree->child1, depth);
+            print2Target("STORE", "");
             
         } else {
             traverseTree(tree->child1, depth);
