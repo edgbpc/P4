@@ -225,7 +225,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
             if (!verify(tempVariable)){
                 tempVariableContainer.push_back(tempVariable);
             }
-            print2Target("\nSTORE", tempVariable);
 
             
             
