@@ -35,6 +35,17 @@ CodeGen::CodeGen(){
     
 }
 
+bool CodeGen::verify(string variable){
+    
+    //scan the vector to see if the variable already exits
+    for (int i = 0; i < tempVariableContainer.size(); i++) {
+        if (tempVariableContainer[i] == variable){
+            return true;
+        }
+    }
+    return false;
+}
+
 string CodeGen::nextTempVariable(){
     string nextVariable;
     nextVariable = "T" + to_string(tempVariableCounter);
@@ -193,8 +204,10 @@ void CodeGen::traverseTree(node *tree, int depth) {
             print2Target("\nMULT", "-1");
         }
         tempVariable = nextTempVariable();
-        tempVariableContainer.push_back(tempVariable);
-        tempVariableValues.push_back("0");
+        if (!verify(tempVariable)){
+            tempVariableContainer.push_back(tempVariable);
+            tempVariableValues.push_back("0");
+        }
         print2Target("\nSTORE", tempVariable);
         
         
@@ -225,7 +238,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
 
         traverseTree(tree->child1, depth);
         print2Target("\nLOAD", tempVariable);
-        print2Target("\nWRITE", tree->token1.tokenInstance);
+        print2Target("\nWRITE", tempVariable);
 
    
         return;
