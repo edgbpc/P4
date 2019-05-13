@@ -28,7 +28,6 @@ string tempVariableValue;
 using namespace std;
 
 vector<string> tempVariableContainer;
-vector<string> tempVariableValues;
 
 CodeGen::CodeGen(){
     
@@ -62,8 +61,7 @@ void CodeGen::Run(node* tree){
         print2Target("\n", "");
     }
     for (int i = 0; i < tempVariableContainer.size(); i++){
-        print2Target(tempVariableContainer[i], "");
-        print2Target("", tempVariableValues[i]);
+        print2Target(tempVariableContainer[i], "0");
         print2Target("\n", "");
     }
     
@@ -147,11 +145,10 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (tree->child1 != NULL){
             traverseTree(tree->child1, depth);
             traverseTree(tree->child2, depth);
+            return;
         } else {
             return;
         }
-
-        return;
         
     } else if (tree->nodeLabel == "expr"){
         if (DEVMODE) cout << "inside EXPR node" << endl;
@@ -161,7 +158,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
             tempVariable = nextTempVariable();
             if (!verify(tempVariable)){
                 tempVariableContainer.push_back(tempVariable);
-                tempVariableValues.push_back("0");
             }
             print2Target("\nSTORE", tempVariable);
             traverseTree(tree->child1, depth);
@@ -175,10 +171,9 @@ void CodeGen::traverseTree(node *tree, int depth) {
             tempVariable = nextTempVariable();
             if (!verify(tempVariable)){
                 tempVariableContainer.push_back(tempVariable);
-                tempVariableValues.push_back("0");
             }
             print2Target("\nSTORE", tempVariable);
-            traverseTree(tree->child2, depth);
+            traverseTree(tree->child1, depth);
             print2Target("\nSUB", tempVariable);
 
             return;
@@ -229,7 +224,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
             tempVariable = nextTempVariable();
             if (!verify(tempVariable)){
                 tempVariableContainer.push_back(tempVariable);
-                tempVariableValues.push_back("0");
             }
             print2Target("\nSTORE", tempVariable);
 
@@ -250,8 +244,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
            print2Target("\nLOAD", tree->token1.tokenInstance);
             return;
         } else {
-                traverseTree(tree->child1, depth);
-                return;
+            traverseTree(tree->child1, depth);
+            return;
             }
     
     
@@ -268,7 +262,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
         tempVariable = nextTempVariable();
         if (!verify(tempVariable)){
             tempVariableContainer.push_back(tempVariable);
-            tempVariableValues.push_back("0");
         }
         
         
