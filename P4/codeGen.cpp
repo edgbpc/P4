@@ -198,11 +198,11 @@ void CodeGen::traverseTree(node *tree, int depth) {
             print2Target("\n", "");
             print2Target("DIV", tempVariable);
             print2Target("\n", "");
+            return;
         } else {
             if (DEVMODE) cout << "Checking child 1." << endl;
-            if(tree->child1 != NULL){
-                traverseTree(tree->child1, depth);
-            }
+            traverseTree(tree->child1, depth);
+            return;
         }
         
     } else if (tree->nodeLabel == "N"){
@@ -212,9 +212,11 @@ void CodeGen::traverseTree(node *tree, int depth) {
             print2Target("\n", "");
             print2Target("MULT", tempVariable);
             print2Target("\n", "");
+            return;
         } else {
             if(tree->child1 != NULL){
                 traverseTree(tree->child1, depth);
+                return;
             }
         }
         
