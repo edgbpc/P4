@@ -47,6 +47,7 @@ bool CodeGen::verify(string variable){
 
 string CodeGen::nextTempVariable(){
     string nextVariable;
+    tempVariableCounter++;
     nextVariable = "T" + to_string(tempVariableCounter);
     cout << "Next Variable is " << nextVariable << endl;
     return  nextVariable;
