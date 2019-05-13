@@ -189,16 +189,17 @@ void CodeGen::traverseTree(node *tree, int depth) {
     } else if (tree->nodeLabel == "M"){
         if (DEVMODE) cout << "inside M node" << endl;
         if (tree->token1.tokenInstance == "%"){
+            traverseTree(tree->child1, depth);
             print2Target("\nMULT", "-1");
         }
-            traverseTree(tree->child1, depth);
+        
         
         return;
     
     } else if (tree->nodeLabel == "R"){
         if (DEVMODE) cout << "inside R node" << endl;
         if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
-           print2Target("LOAD", tree->token1.tokenInstance);
+           print2Target("\nLOAD", tree->token1.tokenInstance);
         } else {
             if(tree->child1 != NULL){
                 traverseTree(tree->child1, depth);
@@ -221,7 +222,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
         traverseTree(tree->child1, depth);
         
         if (DEVMODE) cout << "inside OUT node" << endl;
-        print2Target("\nSTORE", "");
         print2Target("\nWRITE", "");
         
    
