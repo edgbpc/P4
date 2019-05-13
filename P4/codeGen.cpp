@@ -276,11 +276,12 @@ void CodeGen::traverseTree(node *tree, int depth) {
     } else if (tree->nodeLabel == "assign"){
         if (DEVMODE) cout << "inside ASSIGN node" << endl;
         traverseTree(tree->child1, depth);
+        print2Target("/LOAD", tree->token1.tokenInstance);
         return;
         
     } else if (tree->nodeLabel == "RO"){
         if (DEVMODE) cout << "inside RO node" << endl;
-
+        
         
     } else {
         depth++;
