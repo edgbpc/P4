@@ -198,8 +198,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     } else if (tree->nodeLabel == "R"){
         if (DEVMODE) cout << "inside R node" << endl;
         if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
-           print2Target("", tree->token1.tokenInstance);
-            print2Target("\n", "");
+           print2Target("LOAD", tree->token1.tokenInstance);
         } else {
             if(tree->child1 != NULL){
                 traverseTree(tree->child1, depth);
