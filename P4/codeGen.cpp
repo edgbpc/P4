@@ -52,7 +52,7 @@ void CodeGen::Run(node* tree){
     }
     for (int i = 0; i < tempVariableContainer.size(); i++){
         print2Target(tempVariableContainer[i], "");
-       // print2Target("", tempVariableValues[i]);
+        print2Target("", tempVariableValues[i]);
         print2Target("\n", "");
     }
     
@@ -193,7 +193,9 @@ void CodeGen::traverseTree(node *tree, int depth) {
             print2Target("\nMULT", "-1");
         }
         tempVariable = nextTempVariable();
-        print2Target("\nLOAD", tempVariable);
+        tempVariableContainer.push_back(tempVariable);
+        tempVariableValues.push_back("0");
+        print2Target("\nSTORE", tempVariable);
         
         
         return;
@@ -222,7 +224,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside OUT node" << endl;
 
         traverseTree(tree->child1, depth);
-
+        print2Target("\nLOAD", tempVariable);
         print2Target("\nWRITE", tree->token1.tokenInstance);
 
    
