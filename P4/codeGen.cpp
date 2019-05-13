@@ -211,7 +211,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         }
         print2Target("\nSTORE", tempVariable);
         } else {
-            traverseTree(tree->child1, depth);
+            traverseTree(tree->child1, depth);//
         }
         
         return;
