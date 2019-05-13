@@ -246,16 +246,13 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside R node" << endl;
         if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
            print2Target("\nLOAD", tree->token1.tokenInstance);
+            return;
         } else {
-            if(tree->child1 != NULL){
                 traverseTree(tree->child1, depth);
                 return;
             }
-        }
-        
-        return;
-
-        
+    
+    
     } else if (tree->nodeLabel == "In"){
         if (DEVMODE) cout << "inside IN node" << endl;
         print2Target("\nREAD", "");
