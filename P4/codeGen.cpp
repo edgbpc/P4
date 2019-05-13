@@ -47,9 +47,9 @@ bool CodeGen::verify(string variable){
 
 string CodeGen::nextTempVariable(){
     string nextVariable;
-    tempVariableCounter++;
     nextVariable = "T" + to_string(tempVariableCounter);
     cout << "Next Variable is " << nextVariable << endl;
+    tempVariableCounter++;
     return  nextVariable;
     
 }
@@ -222,14 +222,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside M node" << endl;
         if (tree->token1.tokenInstance == "%"){
             print2Target("\nMULT", "-1");
-       
-            tempVariable = nextTempVariable();
-            if (!verify(tempVariable)){
-                tempVariableContainer.push_back(tempVariable);
-            }
-
-            
-            
+      
             return;
             
         } else {
@@ -266,7 +259,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         }
         
         
-        print2Target("\nSTORE", tempVariable);
+        print2Target("\nLOAD", tempVariable);
         print2Target("\nWRITE", tempVariable);
 
    
