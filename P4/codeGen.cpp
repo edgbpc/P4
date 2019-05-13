@@ -221,7 +221,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
         
         if (DEVMODE) cout << "inside OUT node" << endl;
-        print2Target("\nWRITE", "");
+        print2Target("\nWRITE", tree->token1.tokenInstance);
         traverseTree(tree->child1, depth);
 
    
