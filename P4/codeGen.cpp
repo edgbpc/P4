@@ -222,12 +222,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside M node" << endl;
         if (tree->token1.tokenInstance == "%"){
             print2Target("\nMULT", "-1");
-            tempVariable = nextTempVariable();
-            if (!verify(tempVariable)){
-                tempVariableContainer.push_back(tempVariable);
-            }
-            print2Target("\nLOAD", tempVariable);
-      
             return;
             
         } else {
