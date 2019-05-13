@@ -275,7 +275,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     } else if (tree->nodeLabel == "assign"){
         if (DEVMODE) cout << "inside ASSIGN node" << endl;
-
+        traverseTree(tree->child1, depth);
+        return;
         
     } else if (tree->nodeLabel == "RO"){
         if (DEVMODE) cout << "inside RO node" << endl;
