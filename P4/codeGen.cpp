@@ -52,7 +52,7 @@ void CodeGen::Run(node* tree){
     }
     for (int i = 0; i < tempVariableContainer.size(); i++){
         print2Target(tempVariableContainer[i], "");
-        print2Target("", tempVariableValues[i]);
+       // print2Target("", tempVariableValues[i]);
         print2Target("\n", "");
     }
     
@@ -192,6 +192,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
             traverseTree(tree->child1, depth);
             print2Target("\nMULT", "-1");
         }
+        tempVariable = nextTempVariable();
+        print2Target("\nLOAD", tempVariable);
         
         
         return;
