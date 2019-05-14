@@ -183,7 +183,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
             traverseTree(tree->child2, depth);
 	    tempVariable = nextTempVariable();
             
-	    print2Target("\nLOAD", tempVariable);
+	    print2Target("\nSTORE", tempVariable);
             print2Target("\nDIV", tempVariable);
             traverseTree(tree->child1, depth);
 	    return;
@@ -199,7 +199,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
 	    traverseTree(tree->child2, depth);
 	    tempVariable = nextTempVariable();
 
-	    print2Target("\nLOAD", tempVariable);
+	    print2Target("\nSTORE", tempVariable);
             print2Target("\nMULT", tempVariable);
 	    traverseTree(tree->child1, depth);
             return;
