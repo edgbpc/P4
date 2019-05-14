@@ -22,6 +22,9 @@
 const int DEVMODE = 1;
 int tempVariableCounter = 0;
 string tempVariable = "";
+int nextLabelCounter = 0;
+string label = "";
+
 
 using namespace std;
 
@@ -48,6 +51,15 @@ string CodeGen::nextTempVariable(){
     tempVariableCounter++;
     return  nextVariable;
     
+}
+
+string CodeGen::nextLabel(){
+	string nextLabel;
+	nextLabel = "L" + to_string(nextLabelCounter);
+	cout << "Next Label is " << nextLabel << endl;
+	nextLabelCounter++;
+	
+	return nextLabel;
 }
 
 void CodeGen::Run(node* tree){
@@ -230,7 +242,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     } else if (tree->nodeLabel == "R"){
         if (DEVMODE) cout << "inside R node" << endl;
         if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
-           print2Target("\nLOAD", tree->token1.tokenInstance);
+            print2Target("\nLOAD", tree->token1.tokenInstance);
             return;
         } else {
             traverseTree(tree->child1, depth);
@@ -258,8 +270,19 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
 
 
-    } else if (tree->nodeLabel == "IF"){
+    } else if (tree->nodeLabel == "If"){
         if (DEVMODE) cout << "inside IF node" << endl;
+	traverseTree(tree->child3, depth);
+	tempVariable = nextTempVariable();
+	print2Target("\nSTORE", tempVariable);
+	traverseTree(tree->child1, depth);
+	print2Target("\nSUB", tempVariable);
+	label = "Out";
+	traverseTree(tree->child2, depth);
+	traverseTree(tree->child4, depth);
+	print2Target("\n", "");
+	print2Target(label, "");
+	print2Target(":", "NOOP");
 	return;
         
     } else if (tree->nodeLabel == "loop"){
@@ -268,12 +291,48 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     } else if (tree->nodeLabel == "assign"){
         if (DEVMODE) cout << "inside ASSIGN node" << endl;
+	tempVariable = nextTempVariable();
+       	print2Target("\nLOAD", tempVariable);
         traverseTree(tree->child1, depth);
-        print2Target("\nLOAD", tree->token1.tokenInstance);
         return;
         
     } else if (tree->nodeLabel == "RO"){
         if (DEVMODE) cout << "inside RO node" << endl;
+
+	if (tree->token1.tokenInstance == ">"){
+		if (tree->token2.tokenInstance == ""){
+			//BR CONDITION 
+			return;
+		} else {
+	   		//nothing
+		}		
+	} else if (tree->token1.tokenInstance == "<"){
+		if (tree->token2.tokenInstance == ""){
+			//BR condition
+			return;
+		
+		} else if (tree->token2.tokenInstance == ">"){
+			//BR codntion
+			return;
+		} else {
+			//nothing
+		}
+	} else if (tree->token1.tokenInstance == "="){
+	       if (tree->token2.tokenInstance == ">"){
+		       //BR condition
+		       return;
+	       } else if (tree->token2.tokenInstance == "<"){
+		       //BR condition
+		       return;
+	       } else if (tree->token2.tokenInstance == ""){
+		       //BR condition
+		       return;
+		} else {
+			//nothing
+		}
+	}
+
+	print2Target("\nBRZERO", label);
         return;
         
     } else {

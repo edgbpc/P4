@@ -30,6 +30,7 @@ private:
     void print2Target(string command, string token);
     string nextTempVariable();
     bool verify(string variable);
+    string nextLabel();
     
 };
 
