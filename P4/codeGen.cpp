@@ -243,7 +243,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside R node" << endl;
         if (tree->token1.tokenID == identifierToken || tree->token1.tokenID == digitToken){
             print2Target("\nLOAD", tree->token1.tokenInstance);
-            return;
+	    return;
         } else {
             traverseTree(tree->child1, depth);
             return;
@@ -253,7 +253,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
     } else if (tree->nodeLabel == "In"){
         if (DEVMODE) cout << "inside IN node" << endl;
         print2Target("\nREAD", tree->token1.tokenInstance);
-        return;
+	return;
 
         
     } else if (tree->nodeLabel == "Out"){
@@ -291,48 +291,47 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     } else if (tree->nodeLabel == "assign"){
         if (DEVMODE) cout << "inside ASSIGN node" << endl;
+	traverseTree(tree->child1, depth);
 	tempVariable = nextTempVariable();
-       	print2Target("\nLOAD", tempVariable);
-        traverseTree(tree->child1, depth);
+	print2Target("\nSTORE", tree->token1.tokenInstance);
+
         return;
-        
     } else if (tree->nodeLabel == "RO"){
         if (DEVMODE) cout << "inside RO node" << endl;
 
 	if (tree->token1.tokenInstance == ">"){
 		if (tree->token2.tokenInstance == ""){
-			//BR CONDITION 
+			print2Target("\nBRZNEG", label);
 			return;
 		} else {
 	   		//nothing
 		}		
 	} else if (tree->token1.tokenInstance == "<"){
 		if (tree->token2.tokenInstance == ""){
-			//BR condition
+			print2Target("\nBRZPOS", label);
 			return;
 		
 		} else if (tree->token2.tokenInstance == ">"){
-			//BR codntion
+			print2Target("\nBRZERO", label);
 			return;
 		} else {
 			//nothing
 		}
 	} else if (tree->token1.tokenInstance == "="){
 	       if (tree->token2.tokenInstance == ">"){
-		       //BR condition
+		       print2Target("\nBRNEG", label);
 		       return;
 	       } else if (tree->token2.tokenInstance == "<"){
-		       //BR condition
+		       print2Target("\nBRPOS", label); 
 		       return;
 	       } else if (tree->token2.tokenInstance == ""){
-		       //BR condition
+		       print2Target("\nBRPOS", label);
 		       return;
 		} else {
 			//nothing
 		}
 	}
 
-	print2Target("\nBRZERO", label);
         return;
         
     } else {
