@@ -1,7 +1,7 @@
 CC	= g++
 CFLAGS	= 
 
-TARGET1	= codeGen
+TARGET1	= comp
 OBJS1	= main.o
 OBJS2	= scanner.o
 OBJS3	= parser.o
@@ -14,7 +14,7 @@ CXXFLAGS = -std=c++11
 
 all:	$(TARGET1)
 
-codeGen:	$(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)
+comp:	$(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5)
 		$(CC) $(CFLAGS) $(CXXFLAGS) $(OBJS1) $(OBJS2) $(OBJS3) $(OBJS4) $(OBJS5) -o $@
 
 

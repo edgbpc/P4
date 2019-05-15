@@ -55,7 +55,7 @@ string CodeGen::nextLabel(){
 
 string previousTempVariable(){
 	string previousTempVariable;
-	previousTempVariable = "T" + to_string(nextLabelCounter - 1);
+	previousTempVariable = "T" + to_string(tempVariableCounter - 2);
 	cout << "previous variable was " << previousTempVariable << endl;
 	return previousTempVariable;
 }
@@ -192,7 +192,8 @@ void CodeGen::traverseTree(node *tree, int depth) {
 	    tempVariable = nextTempVariable();
 	    print2Target("\nSTORE", tempVariable);
 	    traverseTree(tree->child1, depth);
-	    print2Target("\nDIV", tempVariable);
+	    cout << "5555555" +  previousTempVariable();
+	    print2Target("\nDIV", previousTempVariable());
 	    return;
         }
         
