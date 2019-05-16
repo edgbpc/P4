@@ -160,8 +160,7 @@ void CodeGen::traverseTree(node *tree, int depth) {
         
     } else if (tree->nodeLabel == "expr"){
         if (DEVMODE) cout << "inside EXPR node" << endl;
-	if (tree->token1.tokenInstance != ""){
-		if (DEVMODE) cout << "!!!!!! NOT NULL !!!!!!" << endl;
+	if (tree->child2 != NULL){
 	    traverseTree(tree->child2, depth);
             tempVariable = nextTempVariable();    
 	    print2Target("\nSTORE", tempVariable);	
@@ -192,7 +191,6 @@ void CodeGen::traverseTree(node *tree, int depth) {
 	    tempVariable = nextTempVariable();
 	    print2Target("\nSTORE", tempVariable);
 	    traverseTree(tree->child1, depth);
-	    cout << "5555555" +  previousTempVariable();
 	    print2Target("\nDIV", previousTempVariable());
 	    return;
         }
