@@ -19,7 +19,7 @@
 #include "codeGen.h"
 
 
-const int DEVMODE = 1;
+const int DEVMODE = 0;
 int tempVariableCounter = 1;
 string tempVariable = "";
 int nextLabelCounter = 1;
@@ -38,7 +38,7 @@ CodeGen::CodeGen(){
 string CodeGen::nextTempVariable(){
     string nextVariable;
     nextVariable = "T" + to_string(tempVariableCounter);
-    cout << "Next Variable is " << nextVariable << endl;
+    if (DEVMODE) cout << "Next Variable is " << nextVariable << endl;
     tempVariableCounter++;
     return  nextVariable;
     
@@ -47,7 +47,7 @@ string CodeGen::nextTempVariable(){
 string CodeGen::nextLabel(){
     string nextLabel;
     nextLabel = "L" + to_string(nextLabelCounter);
-    cout << "Next Label is " << nextLabel << endl;
+    if(DEVMODE) cout << "Next Label is " << nextLabel << endl;
     nextLabelCounter++;
 	
     return nextLabel;
@@ -56,7 +56,7 @@ string CodeGen::nextLabel(){
 string previousTempVariable(){
 	string previousTempVariable;
 	previousTempVariable = "T" + to_string(tempVariableCounter - 2);
-	cout << "previous variable was " << previousTempVariable << endl;
+	if (DEVMODE) cout << "previous variable was " << previousTempVariable << endl;
 	return previousTempVariable;
 }
 
@@ -162,14 +162,14 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside EXPR node" << endl;
 	if (tree->child2 != NULL){
 	    traverseTree(tree->child2, depth);
-            tempVariable = nextTempVariable();    
-	    print2Target("\nSTORE", tempVariable);	
-            traverseTree(tree->child1, depth);
+            string exprTempVariable = nextTempVariable();    
+	    print2Target("\nSTORE", exprTempVariable);	
+	    traverseTree(tree->child1, depth);
             if (tree->token1.tokenInstance == "+"){
-		    print2Target("\nADD", tempVariable);
+		    print2Target("\nADD", exprTempVariable);
 		    return;
 	    } else if (tree->token1.tokenInstance == "-"){
-		    print2Target("\nSUB", tempVariable);
+		    print2Target("\nSUB", exprTempVariable);
 		    return;
 	    } else {
 		    //nothing
@@ -185,13 +185,14 @@ void CodeGen::traverseTree(node *tree, int depth) {
         if (DEVMODE) cout << "inside A node" << endl;
 	if (tree->token1.tokenInstance == ""){
 		traverseTree(tree->child1, depth);
+	
 		return;
 	} else if (tree->token1.tokenInstance == "/"){
+	    string divTempVariable = nextTempVariable();
             traverseTree(tree->child2, depth);
-	    tempVariable = nextTempVariable();
-	    print2Target("\nSTORE", tempVariable);
+	    print2Target("\nSTORE", divTempVariable);
 	    traverseTree(tree->child1, depth);
-	    print2Target("\nDIV", previousTempVariable());
+	    print2Target("\nDIV", divTempVariable);
 	    return;
         }
         
@@ -201,11 +202,12 @@ void CodeGen::traverseTree(node *tree, int depth) {
 		traverseTree(tree->child1, depth);
 		return;
 	} else if (tree->token1.tokenInstance == "*" ){
+
+            string multTempVariable = nextTempVariable();
 	    traverseTree(tree->child2, depth);
-	    tempVariable = nextTempVariable();
-	    print2Target("\nSTORE", tempVariable);
+	    print2Target("\nSTORE", multTempVariable);
 	    traverseTree(tree->child1, depth);
-	    print2Target("\nMULT", tempVariable);
+	    print2Target("\nMULT", multTempVariable);
             return;
        	}
         
